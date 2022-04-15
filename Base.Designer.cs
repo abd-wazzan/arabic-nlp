@@ -1,7 +1,7 @@
 ﻿
 namespace arabic_nlp
 {
-    partial class Form1
+    partial class Base
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,21 @@ namespace arabic_nlp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Base
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(873, 558);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Base";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Text = "Arabic NLP";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -1,0 +1,15 @@
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\arabic-nlp.exe.config
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\arabic-nlp.exe
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\arabic-nlp.pdb
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\MaterialSkin.dll
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\MetroFramework.Design.dll
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\MetroFramework.dll
+C:\Users\ASUS\source\repos\arabic-nlp\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic-nlp.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic_nlp.Base.resources
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic_nlp.Properties.Resources.resources
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic-nlp.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic-nlp.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic-nlp.csproj.CopyComplete
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic-nlp.exe
+C:\Users\ASUS\source\repos\arabic-nlp\obj\Debug\arabic-nlp.pdb
