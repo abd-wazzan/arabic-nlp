@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.IO;
 
 namespace arabic_nlp
 {
@@ -16,6 +17,27 @@ namespace arabic_nlp
         public Base()
         {
             InitializeComponent();
+        }
+
+        private void choose_file_btn_Click(object sender, EventArgs e)
+        {
+            open_input_dialog.ShowDialog();
+            using (StreamReader read = new StreamReader(open_input_dialog.FileName))
+            {
+                while (true)
+                {
+                    string line = read.ReadLine();
+                    if (line == null)
+                        break;
+                    input_txt.Text = line + "\n";
+                }
+            }
+        }
+
+        private void clear_btn_Click(object sender, EventArgs e)
+        {
+            input_txt.Clear();
+            output_list.Clear();
         }
     }
 }

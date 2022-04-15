@@ -32,7 +32,7 @@ namespace arabic_nlp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroListView1 = new MetroFramework.Controls.MetroListView();
+            this.output_list = new MetroFramework.Controls.MetroListView();
             this.input_txt = new MetroFramework.Controls.MetroTextBox();
             this.run_btn = new MetroFramework.Controls.MetroButton();
             this.clear_btn = new MetroFramework.Controls.MetroButton();
@@ -44,6 +44,7 @@ namespace arabic_nlp
             this.weight_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.root_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.symantic_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.open_input_dialog = new System.Windows.Forms.OpenFileDialog();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,8 @@ namespace arabic_nlp
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTabControl1.ItemSize = new System.Drawing.Size(100, 40);
+            this.metroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Tall;
+            this.metroTabControl1.ItemSize = new System.Drawing.Size(120, 40);
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.RightToLeftLayout = true;
@@ -64,7 +66,7 @@ namespace arabic_nlp
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.metroListView1);
+            this.metroTabPage1.Controls.Add(this.output_list);
             this.metroTabPage1.Controls.Add(this.input_txt);
             this.metroTabPage1.Controls.Add(this.run_btn);
             this.metroTabPage1.Controls.Add(this.clear_btn);
@@ -82,10 +84,10 @@ namespace arabic_nlp
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
-            // metroListView1
+            // output_list
             // 
-            this.metroListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.output_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.output_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.word_header,
             this.prefix_header,
             this.abstract_header,
@@ -93,16 +95,16 @@ namespace arabic_nlp
             this.weight_header,
             this.root_header,
             this.symantic_header});
-            this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListView1.FullRowSelect = true;
-            this.metroListView1.Location = new System.Drawing.Point(647, 22);
-            this.metroListView1.Name = "metroListView1";
-            this.metroListView1.OwnerDraw = true;
-            this.metroListView1.Size = new System.Drawing.Size(565, 578);
-            this.metroListView1.TabIndex = 6;
-            this.metroListView1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroListView1.UseCompatibleStateImageBehavior = false;
-            this.metroListView1.UseSelectable = true;
+            this.output_list.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.output_list.FullRowSelect = true;
+            this.output_list.Location = new System.Drawing.Point(647, 22);
+            this.output_list.Name = "output_list";
+            this.output_list.OwnerDraw = true;
+            this.output_list.Size = new System.Drawing.Size(565, 578);
+            this.output_list.TabIndex = 6;
+            this.output_list.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.output_list.UseCompatibleStateImageBehavior = false;
+            this.output_list.UseSelectable = true;
             // 
             // input_txt
             // 
@@ -139,7 +141,7 @@ namespace arabic_nlp
             // 
             // run_btn
             // 
-            this.run_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.run_btn.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.run_btn.Highlight = true;
             this.run_btn.Location = new System.Drawing.Point(498, 540);
             this.run_btn.Name = "run_btn";
@@ -152,7 +154,7 @@ namespace arabic_nlp
             // 
             // clear_btn
             // 
-            this.clear_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.clear_btn.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.clear_btn.Highlight = true;
             this.clear_btn.Location = new System.Drawing.Point(158, 540);
             this.clear_btn.Name = "clear_btn";
@@ -162,10 +164,11 @@ namespace arabic_nlp
             this.clear_btn.Text = "تهيئة";
             this.clear_btn.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.clear_btn.UseSelectable = true;
+            this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
             // 
             // choose_file_btn
             // 
-            this.choose_file_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.choose_file_btn.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.choose_file_btn.Highlight = true;
             this.choose_file_btn.Location = new System.Drawing.Point(18, 540);
             this.choose_file_btn.Name = "choose_file_btn";
@@ -175,10 +178,11 @@ namespace arabic_nlp
             this.choose_file_btn.Text = "اختر ملف";
             this.choose_file_btn.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.choose_file_btn.UseSelectable = true;
+            this.choose_file_btn.Click += new System.EventHandler(this.choose_file_btn_Click);
             // 
             // word_header
             // 
-            this.word_header.Text = "الكلمة";
+            this.word_header.Text = "كلمة";
             // 
             // prefix_header
             // 
@@ -207,8 +211,12 @@ namespace arabic_nlp
             // 
             // symantic_header
             // 
-            this.symantic_header.Text = "الدلالة";
+            this.symantic_header.Text = "دلالة";
             this.symantic_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // open_input_dialog
+            // 
+            this.open_input_dialog.FileName = "openFileDialog1";
             // 
             // Base
             // 
@@ -241,7 +249,7 @@ namespace arabic_nlp
         private MetroFramework.Controls.MetroButton clear_btn;
         private MetroFramework.Controls.MetroButton choose_file_btn;
         private MetroFramework.Controls.MetroTextBox input_txt;
-        private MetroFramework.Controls.MetroListView metroListView1;
+        private MetroFramework.Controls.MetroListView output_list;
         private System.Windows.Forms.ColumnHeader word_header;
         private System.Windows.Forms.ColumnHeader prefix_header;
         private System.Windows.Forms.ColumnHeader abstract_header;
@@ -249,6 +257,7 @@ namespace arabic_nlp
         private System.Windows.Forms.ColumnHeader weight_header;
         private System.Windows.Forms.ColumnHeader root_header;
         private System.Windows.Forms.ColumnHeader symantic_header;
+        private System.Windows.Forms.OpenFileDialog open_input_dialog;
     }
 }
 
