@@ -41,6 +41,7 @@ namespace arabic_nlp
                 {
                     gridView.Rows.Add(new object[] { word.name, word.prefix, word.abstruct, word.suffix, word.weight, word.root, word.meaning});
                 }
+                gridView.Rows.Add(new object[] { "", "", "", "", "", "", "" });
             }
 
             if (gridView.Width > 100 * columnsNames.Count)
@@ -61,8 +62,8 @@ namespace arabic_nlp
             gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridView.ReadOnly = true;
             gridView.BorderStyle = BorderStyle.None;
-            gridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);// alternativ
-            gridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.FromArgb(220, 220, 220);// alternativ
+            gridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
+            gridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.FromArgb(220, 220, 220);
             gridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             gridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 175, 220);
             gridView.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
