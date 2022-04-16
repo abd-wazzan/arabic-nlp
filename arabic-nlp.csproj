@@ -70,6 +70,7 @@
     <Compile Include="Base.Designer.cs">
       <DependentUpon>Base.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableFiller.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="Prefix.cs" />
     <Compile Include="Program.cs" />

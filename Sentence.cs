@@ -29,12 +29,5 @@ namespace arabic_nlp
                 word.processWord();
             }
         }
-
-        public void print(MetroListView listView)
-        {
-            foreach (Word word in this.words)
-            {
-            }
-        }
     }
 }

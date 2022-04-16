@@ -14,6 +14,7 @@ namespace arabic_nlp
 {
     public partial class Base : MetroForm
     {
+
         public Base()
         {
             InitializeComponent();
@@ -21,7 +22,6 @@ namespace arabic_nlp
 
         private void choose_file_btn_Click(object sender, EventArgs e)
         {
-            open_input_dialog.ShowDialog();
             if (open_input_dialog.ShowDialog() == DialogResult.OK)
             { 
                 using (StreamReader read = new StreamReader(open_input_dialog.FileName))
@@ -40,22 +40,21 @@ namespace arabic_nlp
         private void clear_btn_Click(object sender, EventArgs e)
         {
             input_txt.Clear();
-            output_list.Clear();
+            output_grid.Rows.Clear();
+            output_grid.Refresh();
         }
 
         private void Run_btn_Click(object sender, EventArgs e)
         {
             char[] delimiterChars = { ',', '.', ':', '\t', '\n'};
             List<string> allLines = new List<string>();
+            List<Sentence> sentences = new List<Sentence>();
             allLines = (from item in input_txt.Text.Split(delimiterChars) select item.Trim()).ToList();
-            input_txt.Clear();
             foreach(string line in allLines)
             {
-                Sentence sentence = new Sentence(line);
-                input_txt.Clear();
-                input_txt.Text = sentence.words[0].root;
+                sentences.Add(new Sentence(line));
             }
-
+            TableFiller.SetControl(output_grid, sentences);
         }
     }
 }
