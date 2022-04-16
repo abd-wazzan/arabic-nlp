@@ -22,14 +22,17 @@ namespace arabic_nlp
         private void choose_file_btn_Click(object sender, EventArgs e)
         {
             open_input_dialog.ShowDialog();
-            using (StreamReader read = new StreamReader(open_input_dialog.FileName))
-            {
-                while (true)
+            if (open_input_dialog.ShowDialog() == DialogResult.OK)
+            { 
+                using (StreamReader read = new StreamReader(open_input_dialog.FileName))
                 {
-                    string line = read.ReadLine();
-                    if (line == null)
-                        break;
-                    input_txt.Text = line + "\n";
+                    while (true)
+                    {
+                        string line = read.ReadLine();
+                        if (line == null)
+                            break;
+                        input_txt.Text += line + "\n";
+                    }
                 }
             }
         }
@@ -38,6 +41,21 @@ namespace arabic_nlp
         {
             input_txt.Clear();
             output_list.Clear();
+        }
+
+        private void Run_btn_Click(object sender, EventArgs e)
+        {
+            char[] delimiterChars = { ',', '.', ':', '\t', '\n'};
+            List<string> allLines = new List<string>();
+            allLines = (from item in input_txt.Text.Split(delimiterChars) select item.Trim()).ToList();
+            input_txt.Clear();
+            foreach(string line in allLines)
+            {
+                Sentence sentence = new Sentence(line);
+                input_txt.Clear();
+                input_txt.Text = sentence.words[0].root;
+            }
+
         }
     }
 }

@@ -33,10 +33,6 @@ namespace arabic_nlp
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.output_list = new MetroFramework.Controls.MetroListView();
-            this.input_txt = new MetroFramework.Controls.MetroTextBox();
-            this.run_btn = new MetroFramework.Controls.MetroButton();
-            this.clear_btn = new MetroFramework.Controls.MetroButton();
-            this.choose_file_btn = new MetroFramework.Controls.MetroButton();
             this.word_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prefix_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.abstract_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,6 +40,10 @@ namespace arabic_nlp
             this.weight_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.root_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.symantic_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.input_txt = new MetroFramework.Controls.MetroTextBox();
+            this.run_btn = new MetroFramework.Controls.MetroButton();
+            this.clear_btn = new MetroFramework.Controls.MetroButton();
+            this.choose_file_btn = new MetroFramework.Controls.MetroButton();
             this.open_input_dialog = new System.Windows.Forms.OpenFileDialog();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -73,7 +73,7 @@ namespace arabic_nlp
             this.metroTabPage1.Controls.Add(this.choose_file_btn);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 11;
+            this.metroTabPage1.HorizontalScrollbarSize = 8;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(1232, 618);
@@ -82,7 +82,7 @@ namespace arabic_nlp
             this.metroTabPage1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.VerticalScrollbarSize = 6;
             // 
             // output_list
             // 
@@ -106,15 +106,50 @@ namespace arabic_nlp
             this.output_list.UseCompatibleStateImageBehavior = false;
             this.output_list.UseSelectable = true;
             // 
+            // word_header
+            // 
+            this.word_header.Text = "كلمة";
+            // 
+            // prefix_header
+            // 
+            this.prefix_header.Text = "سابقة";
+            this.prefix_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // abstract_header
+            // 
+            this.abstract_header.Text = "مجردة";
+            this.abstract_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // suffix_header
+            // 
+            this.suffix_header.Text = "لاحقة";
+            this.suffix_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // weight_header
+            // 
+            this.weight_header.Text = "وزن";
+            this.weight_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // root_header
+            // 
+            this.root_header.Text = "وزن";
+            this.root_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // symantic_header
+            // 
+            this.symantic_header.Text = "دلالة";
+            this.symantic_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // input_txt
             // 
             // 
             // 
             // 
             this.input_txt.CustomButton.Image = null;
-            this.input_txt.CustomButton.Location = new System.Drawing.Point(102, 2);
+            this.input_txt.CustomButton.Location = new System.Drawing.Point(62, 2);
+            this.input_txt.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.input_txt.CustomButton.Name = "";
-            this.input_txt.CustomButton.Size = new System.Drawing.Size(495, 566);
+            this.input_txt.CustomButton.Size = new System.Drawing.Size(303, 361);
             this.input_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.input_txt.CustomButton.TabIndex = 1;
             this.input_txt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -151,6 +186,7 @@ namespace arabic_nlp
             this.run_btn.Text = "ابدأ";
             this.run_btn.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.run_btn.UseSelectable = true;
+            this.run_btn.Click += new System.EventHandler(this.Run_btn_Click);
             // 
             // clear_btn
             // 
@@ -180,47 +216,13 @@ namespace arabic_nlp
             this.choose_file_btn.UseSelectable = true;
             this.choose_file_btn.Click += new System.EventHandler(this.choose_file_btn_Click);
             // 
-            // word_header
-            // 
-            this.word_header.Text = "كلمة";
-            // 
-            // prefix_header
-            // 
-            this.prefix_header.Text = "سابقة";
-            this.prefix_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // abstract_header
-            // 
-            this.abstract_header.Text = "مجردة";
-            this.abstract_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // suffix_header
-            // 
-            this.suffix_header.Text = "لاحقة";
-            this.suffix_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // weight_header
-            // 
-            this.weight_header.Text = "وزن";
-            this.weight_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // root_header
-            // 
-            this.root_header.Text = "وزن";
-            this.root_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // symantic_header
-            // 
-            this.symantic_header.Text = "دلالة";
-            this.symantic_header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // open_input_dialog
             // 
             this.open_input_dialog.FileName = "openFileDialog1";
             // 
             // Base
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 11F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 744);
             this.Controls.Add(this.metroTabControl1);

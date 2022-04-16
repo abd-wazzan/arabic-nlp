@@ -70,9 +70,16 @@
     <Compile Include="Base.Designer.cs">
       <DependentUpon>Base.cs</DependentUpon>
     </Compile>
+    <Compile Include="Letter.cs" />
+    <Compile Include="Prefix.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Proper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Root.cs" />
+    <Compile Include="RootBased.cs" />
     <Compile Include="Sentence.cs" />
+    <Compile Include="Suffix.cs" />
+    <Compile Include="Weight.cs" />
     <Compile Include="Word.cs" />
     <EmbeddedResource Include="Base.resx">
       <DependentUpon>Base.cs</DependentUpon>
