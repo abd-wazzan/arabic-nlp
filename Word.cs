@@ -106,30 +106,30 @@ namespace arabic_nlp
                 this.root = weight.root;
                 return;
             }
-            this.abstruct = this.name.Substring(this.prefix.Length);
-            weight = rootBased.getRoot(this.abstruct);
+            weight = rootBased.getRoot(this.name.Substring(this.prefix.Length));
             if (weight != null)
             {
+                this.abstruct = this.name.Substring(this.prefix.Length);
                 this.suffix = null;
                 this.meaning = weight.type;
                 this.root = weight.root;
                 return;
             }
-            this.abstruct = this.name.Substring(0, this.name.Length - this.suffix.Length);
-            weight = rootBased.getRoot(this.abstruct);
+            weight = rootBased.getRoot(this.name.Substring(0, this.name.Length - this.suffix.Length));
             if (weight != null)
             {
+                this.abstruct = this.name.Substring(0, this.name.Length - this.suffix.Length);
                 this.prefix = null;
                 this.meaning = weight.type;
                 this.root = weight.root;
                 return;
             }
+            this.prefix = null;
+            this.suffix = null;
             this.abstruct = this.name;
             weight = rootBased.getRoot(this.abstruct);
             if (weight != null)
             {
-                this.prefix = null;
-                this.suffix = null;
                 this.meaning = weight.type;
                 this.root = weight.root;
                 return;

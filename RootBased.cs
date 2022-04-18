@@ -35,6 +35,7 @@ namespace arabic_nlp
             new Weight("فيعل", "ي", new int[] {0, 2, 3}, 5,  "اسم"),
             new Weight("مفعل", "م", new int[] {1, 2, 3}, 4,  "اسم مكان"),
             new Weight("مفعلة", "مة", new int[] {1, 2, 3}, 5,  "اسم مكان"),
+            new Weight("فعيلة", "ية", new int[] {0, 1, 3}, 5,  "اسم مكان"),
             new Weight("فعالة", "اة", new int[] {0, 1, 3}, 5,  "اسم مكان"),
             new Weight("فاعلة", "اة", new int[] {0, 2, 3}, 5,  "اسم مكان"),
             new Weight("فاعول", "او", new int[] {0, 2, 4}, 5,  ""),
