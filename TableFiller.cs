@@ -23,6 +23,15 @@ namespace arabic_nlp
                 "النوع"
             };
 
+        public static List<string> waveColumns = new List<string>()
+            {
+                "المعرف",
+                "النوع",
+                "RMS",
+                "ZRC",
+                "Energy"
+            };
+
         public static void SetControl(DataGridView gridView, List<Sentence> sentences)
         {
             gridView.Rows.Clear();
@@ -45,6 +54,64 @@ namespace arabic_nlp
             }
 
             if (gridView.Width > 100 * columnsNames.Count)
+            {
+                gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            }
+            else
+            {
+                gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            }
+            ///////////////
+            gridView.AllowUserToAddRows = false;
+            gridView.ColumnHeadersDefaultCellStyle.Padding = new Padding(0, 8, 0, 8);
+            gridView.RightToLeft = RightToLeft.Yes;
+            gridView.MultiSelect = false;
+            gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridView.ReadOnly = true;
+            gridView.BorderStyle = BorderStyle.None;
+            gridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
+            gridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.FromArgb(220, 220, 220);
+            gridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            gridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 175, 220);
+            gridView.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            gridView.BackgroundColor = Color.FromArgb(17, 17, 17);
+            gridView.EnableHeadersVisualStyles = false;
+            gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            gridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(40, 40, 40);
+            gridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(200, 200, 200);
+            gridView.GridColor = Color.FromArgb(70, 70, 70);
+            gridView.DefaultCellStyle.Font = new Font("Tahoma", 10.3F, FontStyle.Regular);
+            gridView.RowHeadersVisible = false;
+            gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gridView.AllowUserToResizeRows = false;
+            gridView.DefaultCellStyle.ForeColor = Color.FromArgb(200, 200, 200);
+            gridView.DefaultCellStyle.BackColor = Color.FromArgb(70, 70, 70);
+            gridView.BorderStyle = BorderStyle.Fixed3D;
+            gridView.RowTemplate.Height = 30;
+            gridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10.3F, FontStyle.Bold);
+        }
+
+        public static void SetControl(DataGridView gridView, List<WaveFeature> waves)
+        {
+            gridView.Rows.Clear();
+            gridView.Refresh();
+
+            gridView.ColumnCount = waveColumns.Count;
+
+            for (int i = 0; i < waveColumns.Count; i++)
+            {
+                gridView.Columns[i].Name = waveColumns[i];
+            }
+
+            foreach (var wave in waves)
+            {
+                gridView.Rows.Add(new object[] { wave.Id, wave.Type, Math.Round(wave.RMS, 10).ToString(), Math.Round(wave.ZCR, 10).ToString(), Math.Round(wave.Energy, 10).ToString() });
+            }
+
+            if (gridView.Width > 100 * waveColumns.Count)
             {
                 gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
