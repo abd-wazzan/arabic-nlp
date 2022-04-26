@@ -206,7 +206,7 @@ namespace arabic_nlp
                     temp.Add((diff, wave.Type));
                 }
                 var orderedTemp = temp.OrderBy(a => a.Item1);
-                WaveResultText.Text = "التسجيل يحوي كلمة " + orderedTemp.First().Item2.ToString();
+                WaveResultText.Text = "الملف يحتوي على كلمة " + orderedTemp.First().Item2.ToString();
             }
         }
 
