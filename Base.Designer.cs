@@ -32,12 +32,12 @@ namespace arabic_nlp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.output_grid = new System.Windows.Forms.DataGridView();
             this.input_txt = new MetroFramework.Controls.MetroTextBox();
             this.run_btn = new MetroFramework.Controls.MetroButton();
             this.clear_btn = new MetroFramework.Controls.MetroButton();
             this.choose_file_btn = new MetroFramework.Controls.MetroButton();
             this.open_input_dialog = new System.Windows.Forms.OpenFileDialog();
-            this.output_grid = new System.Windows.Forms.DataGridView();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.output_grid)).BeginInit();
@@ -67,7 +67,7 @@ namespace arabic_nlp
             this.metroTabPage1.Controls.Add(this.choose_file_btn);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 15;
+            this.metroTabPage1.HorizontalScrollbarSize = 17;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(1232, 618);
@@ -78,6 +78,17 @@ namespace arabic_nlp
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 11;
             // 
+            // output_grid
+            // 
+            this.output_grid.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.output_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.output_grid.Location = new System.Drawing.Point(488, 22);
+            this.output_grid.Name = "output_grid";
+            this.output_grid.RowHeadersWidth = 51;
+            this.output_grid.RowTemplate.Height = 26;
+            this.output_grid.Size = new System.Drawing.Size(714, 578);
+            this.output_grid.TabIndex = 8;
+            // 
             // input_txt
             // 
             // 
@@ -85,9 +96,9 @@ namespace arabic_nlp
             // 
             this.input_txt.CustomButton.Image = null;
             this.input_txt.CustomButton.Location = new System.Drawing.Point(-43, 2);
-            this.input_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.input_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.input_txt.CustomButton.Name = "";
-            this.input_txt.CustomButton.Size = new System.Drawing.Size(495, 495);
+            this.input_txt.CustomButton.Size = new System.Drawing.Size(495, 566);
             this.input_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.input_txt.CustomButton.TabIndex = 1;
             this.input_txt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -158,16 +169,6 @@ namespace arabic_nlp
             // open_input_dialog
             // 
             this.open_input_dialog.FileName = "openFileDialog1";
-            // 
-            // output_grid
-            // 
-            this.output_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.output_grid.Location = new System.Drawing.Point(488, 22);
-            this.output_grid.Name = "output_grid";
-            this.output_grid.RowHeadersWidth = 51;
-            this.output_grid.RowTemplate.Height = 26;
-            this.output_grid.Size = new System.Drawing.Size(714, 578);
-            this.output_grid.TabIndex = 8;
             // 
             // Base
             // 
