@@ -22,6 +22,7 @@ using NWaves.Operations;
 using NWaves.Windows;
 using NWaves.FeatureExtractors;
 using NWaves.FeatureExtractors.Serializers;
+using System.Speech.Synthesis;
 
 namespace arabic_nlp
 {
@@ -31,6 +32,7 @@ namespace arabic_nlp
         WaveFileWriter writer;
         string outputFileName;
         private List<WaveFeature> waves = new List<WaveFeature>();
+        private SpeechSynthesizer synthesizer = new SpeechSynthesizer();
         private const string wavesPath = "waves.json";
 
         public Base()
@@ -39,6 +41,16 @@ namespace arabic_nlp
             LoadDevices();
             FillAudioGridView();
             ComboBoxAudioOptions();
+            ComboBoxOutputOptions();
+        }
+
+        private void ComboBoxOutputOptions()
+        {
+            foreach (var voice in synthesizer.GetInstalledVoices())
+            {
+                OutputCombo.Items.Add(voice.VoiceInfo.Name);
+            }
+            OutputCombo.SelectedIndex = 0;
         }
 
         private dynamic GetComboBoxWaveList()
@@ -236,6 +248,23 @@ namespace arabic_nlp
                 var temp = Newtonsoft.Json.JsonConvert.SerializeObject(waves);
                 writer.Write(temp);
             }
+        }
+
+        private void ToSpeechButton_Click(object sender, EventArgs e)
+        {
+            synthesizer.Dispose();
+            synthesizer = new SpeechSynthesizer();
+            synthesizer.Volume = 100;  // 0...100
+            //synthesizer.Rate = -2;     // -10...10
+
+            synthesizer.SelectVoice(OutputCombo.Text);
+            synthesizer.SpeakAsync(ToSpeechText.Text);
+            //synthesizer.SpeakAsync(ToSpeechText.Text);
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            ToSpeechText.Clear();
         }
     }
 }
