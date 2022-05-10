@@ -56,14 +56,24 @@ namespace arabic_nlp
             this.RecordingDeviceComboBox = new MetroFramework.Controls.MetroComboBox();
             this.RecordButton = new MetroFramework.Controls.MetroButton();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.OutputCombo = new MetroFramework.Controls.MetroComboBox();
-            this.ToSpeechButton = new MetroFramework.Controls.MetroButton();
-            this.ToSpeechText = new MetroFramework.Controls.MetroTextBox();
-            this.open_input_dialog = new System.Windows.Forms.OpenFileDialog();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ToSpeechText = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.ToSpeechButton = new MetroFramework.Controls.MetroButton();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.OutputCombo = new MetroFramework.Controls.MetroComboBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.movementComboBox = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.charMovmentButton = new MetroFramework.Controls.MetroButton();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.charComboBox = new MetroFramework.Controls.MetroComboBox();
+            this.ReadText = new MetroFramework.Controls.MetroTextBox();
+            this.ReadTextButton = new MetroFramework.Controls.MetroButton();
+            this.clearReadTextButton = new MetroFramework.Controls.MetroButton();
+            this.open_input_dialog = new System.Windows.Forms.OpenFileDialog();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.output_grid)).BeginInit();
@@ -73,6 +83,8 @@ namespace arabic_nlp
             this.groupBox1.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.metroTabPage4.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -80,13 +92,14 @@ namespace arabic_nlp
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
+            this.metroTabControl1.Controls.Add(this.metroTabPage4);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.metroTabControl1.ItemSize = new System.Drawing.Size(120, 40);
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.RightToLeftLayout = true;
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 3;
             this.metroTabControl1.Size = new System.Drawing.Size(1240, 666);
             this.metroTabControl1.TabIndex = 3;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -101,7 +114,7 @@ namespace arabic_nlp
             this.metroTabPage1.Controls.Add(this.choose_file_btn);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 29;
+            this.metroTabPage1.HorizontalScrollbarSize = 43;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(1232, 618);
@@ -130,7 +143,7 @@ namespace arabic_nlp
             // 
             this.input_txt.CustomButton.Image = null;
             this.input_txt.CustomButton.Location = new System.Drawing.Point(-43, 2);
-            this.input_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4, 9, 4, 9);
+            this.input_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4, 13, 4, 13);
             this.input_txt.CustomButton.Name = "";
             this.input_txt.CustomButton.Size = new System.Drawing.Size(495, 566);
             this.input_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -207,7 +220,7 @@ namespace arabic_nlp
             this.metroTabPage2.Controls.Add(this.groupBox1);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 15;
+            this.metroTabPage2.HorizontalScrollbarSize = 22;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(1232, 618);
@@ -507,7 +520,7 @@ namespace arabic_nlp
             this.metroTabPage3.Controls.Add(this.groupBox3);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 11;
+            this.metroTabPage3.HorizontalScrollbarSize = 17;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(1232, 618);
@@ -518,43 +531,22 @@ namespace arabic_nlp
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
             // 
-            // metroButton1
+            // groupBox3
             // 
-            this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.metroButton1.Highlight = true;
-            this.metroButton1.Location = new System.Drawing.Point(83, 158);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(120, 44);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton1.TabIndex = 15;
-            this.metroButton1.Text = "تهيئة";
-            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // OutputCombo
-            // 
-            this.OutputCombo.FormattingEnabled = true;
-            this.OutputCombo.ItemHeight = 24;
-            this.OutputCombo.Location = new System.Drawing.Point(83, 61);
-            this.OutputCombo.Name = "OutputCombo";
-            this.OutputCombo.Size = new System.Drawing.Size(270, 30);
-            this.OutputCombo.TabIndex = 14;
-            this.OutputCombo.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.OutputCombo.UseSelectable = true;
-            // 
-            // ToSpeechButton
-            // 
-            this.ToSpeechButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.ToSpeechButton.Highlight = true;
-            this.ToSpeechButton.Location = new System.Drawing.Point(233, 158);
-            this.ToSpeechButton.Name = "ToSpeechButton";
-            this.ToSpeechButton.Size = new System.Drawing.Size(120, 44);
-            this.ToSpeechButton.TabIndex = 13;
-            this.ToSpeechButton.Text = "قراءة";
-            this.ToSpeechButton.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ToSpeechButton.UseSelectable = true;
-            this.ToSpeechButton.Click += new System.EventHandler(this.ToSpeechButton_Click);
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.ToSpeechText);
+            this.groupBox3.Controls.Add(this.metroLabel6);
+            this.groupBox3.Controls.Add(this.ToSpeechButton);
+            this.groupBox3.Controls.Add(this.metroLabel5);
+            this.groupBox3.Controls.Add(this.OutputCombo);
+            this.groupBox3.Controls.Add(this.metroButton1);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBox3.Location = new System.Drawing.Point(720, 40);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(478, 252);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
             // 
             // ToSpeechText
             // 
@@ -564,7 +556,7 @@ namespace arabic_nlp
             this.ToSpeechText.CustomButton.Image = null;
             this.ToSpeechText.CustomButton.Location = new System.Drawing.Point(242, 2);
             this.ToSpeechText.CustomButton.Name = "";
-            this.ToSpeechText.CustomButton.Size = new System.Drawing.Size(25, 29);
+            this.ToSpeechText.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.ToSpeechText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.ToSpeechText.CustomButton.TabIndex = 1;
             this.ToSpeechText.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -592,9 +584,28 @@ namespace arabic_nlp
             this.ToSpeechText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.ToSpeechText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // open_input_dialog
+            // metroLabel6
             // 
-            this.open_input_dialog.FileName = "openFileDialog1";
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(372, 117);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(40, 20);
+            this.metroLabel6.TabIndex = 17;
+            this.metroLabel6.Text = "النص";
+            this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // ToSpeechButton
+            // 
+            this.ToSpeechButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.ToSpeechButton.Highlight = true;
+            this.ToSpeechButton.Location = new System.Drawing.Point(233, 158);
+            this.ToSpeechButton.Name = "ToSpeechButton";
+            this.ToSpeechButton.Size = new System.Drawing.Size(120, 44);
+            this.ToSpeechButton.TabIndex = 13;
+            this.ToSpeechButton.Text = "قراءة";
+            this.ToSpeechButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ToSpeechButton.UseSelectable = true;
+            this.ToSpeechButton.Click += new System.EventHandler(this.ToSpeechButton_Click);
             // 
             // metroLabel5
             // 
@@ -606,32 +617,189 @@ namespace arabic_nlp
             this.metroLabel5.Text = "المخرج";
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // metroLabel6
+            // OutputCombo
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(372, 117);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(40, 20);
-            this.metroLabel6.TabIndex = 17;
-            this.metroLabel6.Text = "النص";
-            this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.OutputCombo.FormattingEnabled = true;
+            this.OutputCombo.ItemHeight = 24;
+            this.OutputCombo.Location = new System.Drawing.Point(83, 61);
+            this.OutputCombo.Name = "OutputCombo";
+            this.OutputCombo.Size = new System.Drawing.Size(270, 30);
+            this.OutputCombo.TabIndex = 14;
+            this.OutputCombo.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.OutputCombo.UseSelectable = true;
             // 
-            // groupBox3
+            // metroButton1
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.ToSpeechText);
-            this.groupBox3.Controls.Add(this.metroLabel6);
-            this.groupBox3.Controls.Add(this.ToSpeechButton);
-            this.groupBox3.Controls.Add(this.metroLabel5);
-            this.groupBox3.Controls.Add(this.OutputCombo);
-            this.groupBox3.Controls.Add(this.metroButton1);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.groupBox3.Location = new System.Drawing.Point(720, 40);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(478, 252);
-            this.groupBox3.TabIndex = 18;
-            this.groupBox3.TabStop = false;
+            this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(83, 158);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(120, 44);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton1.TabIndex = 15;
+            this.metroButton1.Text = "تهيئة";
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroTabPage4
+            // 
+            this.metroTabPage4.Controls.Add(this.groupBox4);
+            this.metroTabPage4.Controls.Add(this.ReadText);
+            this.metroTabPage4.Controls.Add(this.ReadTextButton);
+            this.metroTabPage4.Controls.Add(this.clearReadTextButton);
+            this.metroTabPage4.HorizontalScrollbarBarColor = true;
+            this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage4.HorizontalScrollbarSize = 13;
+            this.metroTabPage4.Location = new System.Drawing.Point(4, 44);
+            this.metroTabPage4.Name = "metroTabPage4";
+            this.metroTabPage4.Size = new System.Drawing.Size(1232, 618);
+            this.metroTabPage4.TabIndex = 3;
+            this.metroTabPage4.Text = "المركب الصوتي";
+            this.metroTabPage4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage4.VerticalScrollbarBarColor = true;
+            this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage4.VerticalScrollbarSize = 10;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.movementComboBox);
+            this.groupBox4.Controls.Add(this.metroLabel7);
+            this.groupBox4.Controls.Add(this.charMovmentButton);
+            this.groupBox4.Controls.Add(this.metroLabel8);
+            this.groupBox4.Controls.Add(this.charComboBox);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBox4.Location = new System.Drawing.Point(28, 33);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(478, 252);
+            this.groupBox4.TabIndex = 19;
+            this.groupBox4.TabStop = false;
+            // 
+            // movementComboBox
+            // 
+            this.movementComboBox.FormattingEnabled = true;
+            this.movementComboBox.ItemHeight = 24;
+            this.movementComboBox.Location = new System.Drawing.Point(83, 110);
+            this.movementComboBox.Name = "movementComboBox";
+            this.movementComboBox.Size = new System.Drawing.Size(270, 30);
+            this.movementComboBox.TabIndex = 18;
+            this.movementComboBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.movementComboBox.UseSelectable = true;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(372, 117);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(44, 20);
+            this.metroLabel7.TabIndex = 17;
+            this.metroLabel7.Text = "الحركة";
+            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // charMovmentButton
+            // 
+            this.charMovmentButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.charMovmentButton.Highlight = true;
+            this.charMovmentButton.Location = new System.Drawing.Point(233, 158);
+            this.charMovmentButton.Name = "charMovmentButton";
+            this.charMovmentButton.Size = new System.Drawing.Size(120, 44);
+            this.charMovmentButton.TabIndex = 13;
+            this.charMovmentButton.Text = "اختيار ملف";
+            this.charMovmentButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.charMovmentButton.UseSelectable = true;
+            this.charMovmentButton.Click += new System.EventHandler(this.charMovmentButton_Click);
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(372, 68);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(44, 20);
+            this.metroLabel8.TabIndex = 16;
+            this.metroLabel8.Text = "الحرف";
+            this.metroLabel8.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // charComboBox
+            // 
+            this.charComboBox.FormattingEnabled = true;
+            this.charComboBox.ItemHeight = 24;
+            this.charComboBox.Location = new System.Drawing.Point(83, 61);
+            this.charComboBox.Name = "charComboBox";
+            this.charComboBox.Size = new System.Drawing.Size(270, 30);
+            this.charComboBox.TabIndex = 14;
+            this.charComboBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.charComboBox.UseSelectable = true;
+            // 
+            // ReadText
+            // 
+            // 
+            // 
+            // 
+            this.ReadText.CustomButton.Image = null;
+            this.ReadText.CustomButton.Location = new System.Drawing.Point(-43, 2);
+            this.ReadText.CustomButton.Margin = new System.Windows.Forms.Padding(4, 13, 4, 13);
+            this.ReadText.CustomButton.Name = "";
+            this.ReadText.CustomButton.Size = new System.Drawing.Size(495, 566);
+            this.ReadText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.ReadText.CustomButton.TabIndex = 1;
+            this.ReadText.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.ReadText.CustomButton.UseSelectable = true;
+            this.ReadText.CustomButton.Visible = false;
+            this.ReadText.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.ReadText.Lines = new string[] {
+        "كتب"};
+            this.ReadText.Location = new System.Drawing.Point(748, 33);
+            this.ReadText.MaxLength = 32767;
+            this.ReadText.Multiline = true;
+            this.ReadText.Name = "ReadText";
+            this.ReadText.PasswordChar = '\0';
+            this.ReadText.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.ReadText.SelectedText = "";
+            this.ReadText.SelectionLength = 0;
+            this.ReadText.SelectionStart = 0;
+            this.ReadText.ShortcutsEnabled = false;
+            this.ReadText.Size = new System.Drawing.Size(455, 500);
+            this.ReadText.Style = MetroFramework.MetroColorStyle.Blue;
+            this.ReadText.TabIndex = 8;
+            this.ReadText.Text = "كتب";
+            this.ReadText.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ReadText.UseSelectable = true;
+            this.ReadText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.ReadText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // ReadTextButton
+            // 
+            this.ReadTextButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.ReadTextButton.Highlight = true;
+            this.ReadTextButton.Location = new System.Drawing.Point(1024, 551);
+            this.ReadTextButton.Name = "ReadTextButton";
+            this.ReadTextButton.Size = new System.Drawing.Size(120, 60);
+            this.ReadTextButton.Style = MetroFramework.MetroColorStyle.Green;
+            this.ReadTextButton.TabIndex = 7;
+            this.ReadTextButton.Text = "قراءة";
+            this.ReadTextButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ReadTextButton.UseSelectable = true;
+            this.ReadTextButton.Click += new System.EventHandler(this.ReadTextButton_Click);
+            // 
+            // clearReadTextButton
+            // 
+            this.clearReadTextButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.clearReadTextButton.Highlight = true;
+            this.clearReadTextButton.Location = new System.Drawing.Point(827, 551);
+            this.clearReadTextButton.Name = "clearReadTextButton";
+            this.clearReadTextButton.Size = new System.Drawing.Size(120, 60);
+            this.clearReadTextButton.Style = MetroFramework.MetroColorStyle.Red;
+            this.clearReadTextButton.TabIndex = 6;
+            this.clearReadTextButton.Text = "تهيئة";
+            this.clearReadTextButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.clearReadTextButton.UseSelectable = true;
+            this.clearReadTextButton.Click += new System.EventHandler(this.clearReadTextButton_Click);
+            // 
+            // open_input_dialog
+            // 
+            this.open_input_dialog.FileName = "openFileDialog1";
             // 
             // Base
             // 
@@ -662,6 +830,9 @@ namespace arabic_nlp
             this.metroTabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.metroTabPage4.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -702,6 +873,16 @@ namespace arabic_nlp
         private System.Windows.Forms.GroupBox groupBox3;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroTabPage metroTabPage4;
+        private MetroFramework.Controls.MetroTextBox ReadText;
+        private MetroFramework.Controls.MetroButton ReadTextButton;
+        private MetroFramework.Controls.MetroButton clearReadTextButton;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private MetroFramework.Controls.MetroComboBox movementComboBox;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroButton charMovmentButton;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroComboBox charComboBox;
     }
 }
 

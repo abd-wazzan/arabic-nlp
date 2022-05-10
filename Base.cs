@@ -23,6 +23,10 @@ using NWaves.Windows;
 using NWaves.FeatureExtractors;
 using NWaves.FeatureExtractors.Serializers;
 using System.Speech.Synthesis;
+using NAudio.Wave.SampleProviders;
+using Microsoft.VisualBasic;
+using NWaves.Audio.Interfaces;
+using NWaves.Audio.Mci;
 
 namespace arabic_nlp
 {
@@ -33,6 +37,7 @@ namespace arabic_nlp
         string outputFileName;
         private List<WaveFeature> waves = new List<WaveFeature>();
         private SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+        private List<Sound> sounds = new List<Sound>();
         private const string wavesPath = "waves.json";
 
         public Base()
@@ -42,6 +47,30 @@ namespace arabic_nlp
             FillAudioGridView();
             ComboBoxAudioOptions();
             ComboBoxOutputOptions();
+            ComboBoxCharOptions();
+            ComboBoxMovmentsOptions();
+        }
+
+        private void ComboBoxCharOptions()
+        {
+            charComboBox.DataSource = Enum.GetValues(typeof(Chars)).Cast<Chars>().Select(e => new
+            {
+                Key = e.ToString(),
+                Value = (int)e
+            }).ToList();
+            charComboBox.ValueMember = "Value";
+            charComboBox.DisplayMember = "Key";
+        }
+
+        private void ComboBoxMovmentsOptions()
+        {
+            movementComboBox.DataSource = Enum.GetValues(typeof(SoundType)).Cast<SoundType>().Select(e => new
+            {
+                Key = e.ToString(),
+                Value = (int)e
+            }).ToList();
+            movementComboBox.ValueMember = "Value";
+            movementComboBox.DisplayMember = "Key";
         }
 
         private void ComboBoxOutputOptions()
@@ -265,6 +294,131 @@ namespace arabic_nlp
         private void metroButton1_Click(object sender, EventArgs e)
         {
             ToSpeechText.Clear();
+        }
+
+        private void clearReadTextButton_Click(object sender, EventArgs e)
+        {
+            ReadText.Clear();
+        }
+
+        private void ReadTextButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<ISampleProvider> samples = new List<ISampleProvider>();
+                AudioFileReader audioFileReader;
+                var words = ReadText.Text.Split(' ', '\t', '\n', ';', ',', '.', '،').Where(t => t != "").ToList();
+                char[] voicemovments = { 'و', 'ي' };
+                char[] movments = { 'َ', 'ُ', 'ِ', 'ْ' };
+                bool flag = words.Count > 0;
+                string sound = null;
+                foreach (var word in words)
+                {
+                    for (int i = 0; i < word.Length;)
+                    {
+                        if (i + 1 < word.Length && Array.IndexOf(movments, word[i + 1]) > -1)
+                        {
+                            sound = word[i].ToString() + word[i + 1].ToString();
+                            i++;
+                        }
+                        else if (i + 1 < word.Length && Array.IndexOf(voicemovments, word[i + 1]) > -1)
+                        {
+                            char direction;
+                            switch (word[i + 1])
+                            {
+                                case 'ي':
+                                    direction = 'ِ';
+                                    break;
+                                case 'و':
+                                    direction = 'ُ';
+                                    break;
+                                default:
+                                    direction = 'َ';
+                                    break;
+                            }
+
+                            sound = word[i].ToString() + direction;
+                            i++;
+                        }
+                        else
+                        {
+                            sound = word[i].ToString() + "َ";
+                        }
+                        try
+                        {
+                            audioFileReader = new AudioFileReader("D:\\char_samples\\" + sound + ".m4a");
+                            TimeSpan timeSpan = TimeSpan.FromMilliseconds(375);
+                            TimeSpan skiptime = TimeSpan.FromMilliseconds(110);
+                            samples.Add(audioFileReader.Take(timeSpan).Skip(skiptime));
+                        }
+                        catch
+                        {
+                            flag = false;
+                        }
+                        i++;
+                    }
+                }
+                if (flag)
+                {
+                    var mixer = new ConcatenatingSampleProvider(samples);
+                    WaveFileWriter.CreateWaveFile16("d:\\mixed.wav", mixer);
+
+                    IAudioPlayer player = new MciAudioPlayer();
+
+                    player.PlayAsync("d:\\mixed.wav");
+                }
+                else
+                {
+                    MessageBox.Show("لم يتم التعرف على أحد الكلمات");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void charMovmentButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                char movment;
+                switch (movementComboBox.Text)
+                {
+                    case "ألف":
+                        movment = 'ا';
+                        break;
+                    case "واو":
+                        movment = 'و';
+                        break;
+                    case "ياء":
+                        movment = 'ي';
+                        break;
+                    case "فتحة":
+                        movment = 'َ';
+                        break;
+                    case "ضمة":
+                        movment = 'ُ';
+                        break;
+                    case "كسرة":
+                        movment = 'ِ';
+                        break;
+                    case "سكون":
+                        movment = 'ْ';
+                        break;
+                    default:
+                        movment = 'َ';
+                        break;
+                }
+                if (charComboBox.Text != "" && movementComboBox.Text != "" && open_input_dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Directory.Move(open_input_dialog.FileName, "D:\\char_samples\\" + charComboBox.Text + movment + ".m4a");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("الرجاء اختيار ملف من القرص D");
+            }
         }
     }
 }
